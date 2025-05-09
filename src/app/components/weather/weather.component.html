@@ -1,0 +1,17 @@
+<div class="weather-box">
+    <h2>Sprawdź pogodę</h2>
+    <input type="text" [(ngModel)]="city" placeholder="Wpisz miasto">
+    <button (click)="getWeather()">Pobierz pogodę</button>
+  
+    <div *ngIf="weatherData">
+      <h3>{{ weatherData.name }}</h3>
+      <p>Temperatura: {{ weatherData.main.temp }}°C</p>
+      <p>Wilgotność: {{ weatherData.main.humidity }}%</p>
+      <p>Wiatr: {{ weatherData.wind.speed }} m/s</p>
+    </div>
+  
+    <div *ngIf="errorMessage">
+      <p style="color: red;">{{ errorMessage }}</p>
+    </div>
+  </div>
+  

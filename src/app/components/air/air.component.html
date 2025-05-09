@@ -1,0 +1,13 @@
+<h2>Jakość powietrza</h2>
+<input type="text" [(ngModel)]="city" placeholder="Wpisz miasto">
+<button (click)="getAirQuality()">Sprawdź jakość powietrza</button>
+
+<div *ngIf="airData">
+  <p>Indeks jakości powietrza (1-5): {{ airData.list[0].main.aqi }}</p>
+  <p>PM2.5: {{ airData.list[0].components.pm2_5 }} µg/m³</p>
+  <p>PM10: {{ airData.list[0].components.pm10 }} µg/m³</p>
+</div>
+
+<div *ngIf="errorMessage">
+  <p style="color: red;">{{ errorMessage }}</p>
+</div>
